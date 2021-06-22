@@ -98,11 +98,9 @@ export const signUp = async (req, res) => {
     );
 
     let url; //url for email body
-    if (process.env.PORT) {
-      url = `${process.env.PORT}/user/confirm/${token}`;
-    } else {
-      url = `https://kodekin.herokuapp.com/user/confirm/${token}`;
-    }
+    
+    url = `https://kodekin.herokuapp.com/user/confirm/${token}`;
+    
 
     tranpsorter
       .sendMail({
@@ -190,9 +188,7 @@ export const changePassword = async (req, res) => {
         //sending an password change email to the user
 
         let url = `https://kodekin.herokuapp.com/user/resetpassword/${token}`;
-        if (process.env.PORT) {
-          url = `${process.env.PORT}/user/resetpassword/${token}`;
-        }
+        
         tranpsorter
           .sendMail({
             //sending email using nodemailer
