@@ -101,7 +101,7 @@ export const signUp = async (req, res) => {
     if (process.env.PORT) {
       url = `${process.env.PORT}/user/confirm/${token}`;
     } else {
-      url = `http://localhost:5000/user/confirm/${token}`;
+      url = `https://kodekin.herokuapp.com/user/confirm/${token}`;
     }
 
     tranpsorter
