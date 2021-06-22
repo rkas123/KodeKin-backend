@@ -146,7 +146,7 @@ export const confirmMail = async (req, res) => {
       { $set: { emailConfirmed: true } }
     );
     // res.status(200).json({ message: "Email Confirmed" });
-    res.redirect("http://localhost:3000/login");
+    res.redirect("https://kodekin.netlify.app/login");
 
     //NOTE: here we need to redirect to a new url or the sign up page.
   } catch (err) {
@@ -158,7 +158,7 @@ export const confirmMail = async (req, res) => {
 };
 
 
-
+// https://kodekin.herokuapp.com/user/signin
 
 
 
@@ -189,7 +189,7 @@ export const changePassword = async (req, res) => {
 
         //sending an password change email to the user
 
-        let url = `http://localhost:5000/user/resetpassword/${token}`;
+        let url = `https://kodekin.herokuapp.com/user/resetpassword/${token}`;
         if (process.env.PORT) {
           url = `${process.env.PORT}/user/resetpassword/${token}`;
         }
@@ -238,7 +238,8 @@ export const resetPassword = async (req, res) => {
     await user.save();
     //Now User can login with new password
     //redirect to sign in page
-    res.status(200).json({ message: "Password Change successful. Now SignIn" });
+    res.redirect("https://kodekin.netlify.app/login");
+    // res.status(200).json({ message: "Password Change successful. Now SignIn" });
   } catch (error) {
     console.log(err);
     res.status(401).json({ message: "Something went wrong" });
